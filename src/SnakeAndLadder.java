@@ -4,24 +4,36 @@ public class SnakeAndLadder {
         int min=1;
         int max=6;
         int user1 = 0;
+        int count =0;
 
         System.out.println("Player Position Is: "+user1);
 
         int dice = (int) Math.floor(Math.random() * (max - min + 1) + min);
         System.out.println("Player Dice Number Is: "+dice);
 
-        int predict = (int) Math.floor(Math.random() * 3);
+        while(user1 <= 100) {
 
-        if (predict == 1) {
-            System.out.println("You Got Ladder");
-            user1 = user1 + dice;
+            dice = (int) Math.floor(Math.random() * (max - min + 1) + min);
+            System.out.println("Player Dice Number Is: " + dice);
+
+            int predict = (int) Math.floor(Math.random() * 3);
+
+            if (predict == 1) {
+                System.out.println("You Got Ladder");
+                user1 = user1 + dice;
+            }
+            else if (predict == 2) {
+                System.out.println("You Got Snake");
+                user1 = user1 - dice;
+            }
+            else {
+                System.out.println("You Got No Play");
+            }
+
+            count++;
+
         }
-        else if (predict == 2) {
-            System.out.println("You Got Snake");
-            user1 = user1 - dice;
-        }
-        else {
-            System.out.println("You Got No Play");
-        }
+
+        System.out.println("User Won In: "+count);
     }
 }
