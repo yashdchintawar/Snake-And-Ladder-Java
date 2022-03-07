@@ -16,6 +16,8 @@ public class SnakeAndLadder {
 
             dice = (int) Math.floor(Math.random() * (max - min + 1) + min);
             System.out.println("Player Dice Number Is: " + dice);
+            System.out.println("Player At The Position Number: " + user1);
+
 
             int predict = (int) Math.floor(Math.random() * 3);
 
@@ -28,7 +30,6 @@ public class SnakeAndLadder {
                 else if (rem < 6){
                     user1 = user1 - dice;
                 }
-
             }
             else if (predict == 2) {
                 System.out.println("You Got Snake");
