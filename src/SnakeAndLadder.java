@@ -4,46 +4,76 @@ public class SnakeAndLadder {
         int min=1;
         int max=6;
         int user1 = 0;
-        int count =0;
+        int user2 = 0;
+        int user1Count =0;
+        int user2Count =0;
         int rem = 0;
 
-        System.out.println("Player Position Is: "+user1);
+        while(user1 < 100 && user2 < 100) {
 
-        int dice = (int) Math.floor(Math.random() * (max - min + 1) + min);
-        System.out.println("Player Dice Number Is: "+dice);
+            int dice = (int) Math.floor(Math.random() * (max - min + 1) + min);
+            System.out.println("user1 Player Dice Number Is: " + dice);
+            System.out.println("user1 Player At The Position Number: " + user1);
 
-        while(user1 < 100) {
-
-            dice = (int) Math.floor(Math.random() * (max - min + 1) + min);
-            System.out.println("Player Dice Number Is: " + dice);
-            System.out.println("Player At The Position Number: " + user1);
-
-
-            int predict = (int) Math.floor(Math.random() * 3);
-
-            if (predict == 1) {
-                System.out.println("You Got Ladder");
+            int predictUser1 = (int) Math.floor(Math.random() * 3);
+            if (predictUser1 == 1) {
+                System.out.println("user1 You Got Ladder");
                 if (user1 <= 94) {
                     user1 = user1 + dice;
                     rem = user1 - 100;
+                    user1Count++;
                 }
                 else if (rem < 6){
                     user1 = user1 - dice;
+                    user1Count++;
                 }
             }
-            else if (predict == 2) {
-                System.out.println("You Got Snake");
+            else if (predictUser1 == 2) {
+                System.out.println("user1 You Got Snake");
                 user1 = user1 - dice;
+                user1Count++;
             }
             else {
-                System.out.println("You Got No Play");
+                System.out.println("user1 You Got No Play");
+                user1Count++;
             }
 
-            count++;
+            int dice1 = (int) Math.floor(Math.random() * (max - min + 1) + min);
+            System.out.println("user2 Player Dice Number Is: " + dice1);
+            System.out.println("user2 Player At The Position Number: " + user2);
+
+            int predictUser2 = (int) Math.floor(Math.random() * 3);
+            if (predictUser2 == 1) {
+                System.out.println("user2 You Got Ladder");
+                if (user2 <= 94) {
+                    user2 = user2 + dice;
+                    rem = user2 - 100;
+                    user2Count++;
+                }
+                else if (rem < 6){
+                    user2 = user2 - dice;
+                    user2Count++;
+                }
+            }
+            else if (predictUser2 == 2) {
+                System.out.println("user2 You Got Snake");
+                user2 = user2 - dice;
+                user2Count++;
+            }
+            else {
+                System.out.println("user2 You Got No Play");
+                user2Count++;
+            }
 
         }
+        if (user1 == 100){
+            System.out.println("User 01 Won In: "+user1Count);
+            System.out.println("User 01 At Position: "+user1);
+        }
+        else {
+            System.out.println("User 02 Won In: "+user2Count);
+            System.out.println("User 02 At Position: "+user2);
+        }
 
-        System.out.println("User Won In: "+count);
-        System.out.println("User At Position: "+user1);
     }
 }
